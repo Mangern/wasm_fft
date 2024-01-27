@@ -1,5 +1,5 @@
 use std::ops::{
-    Add, Sub, Mul, AddAssign,
+    Add, Sub, Mul, AddAssign, Div, DivAssign
 };
 
 #[derive(Debug, Copy, Clone)]
@@ -45,6 +45,24 @@ impl Mul for Complex {
             real: self.real * rhs.real - self.imag * rhs.imag,
             imag: self.real * rhs.imag + self.imag * rhs.real
         }
+    }
+}
+
+impl Div<f64> for Complex {
+    type Output = Complex;
+
+    fn div(self, rhs: f64) -> Self::Output {
+        Complex {
+            real: self.real / rhs,
+            imag: self.imag / rhs
+        }
+    }
+}
+
+impl DivAssign<f64> for Complex {
+    fn div_assign(&mut self, rhs: f64) {
+        self.real /= rhs;
+        self.imag /= rhs;
     }
 }
 
