@@ -98,7 +98,6 @@ fn fft(arr: &mut [Complex], start: usize, stop: usize, step: usize, inverse: boo
 }
 
 fn fft2_impl(rows: usize, cols: usize, arr: &mut [f64], inverse: bool) -> Float64Array {
-    // This is quite cursed
     let mut complex_mat: &mut [Complex] = unsafe {
         std::slice::from_raw_parts_mut(arr.as_mut_ptr() as *mut Complex, arr.len() / 2)
     };
