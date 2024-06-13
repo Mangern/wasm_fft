@@ -24,7 +24,7 @@ macro_rules! console_log {
     ($($t:tt)*) => (log(&format_args!($($t)*).to_string()))
 }
 
-// This blazingly fast implementation is from
+// This blazingly fast implementation is adapted from
 // http://neerc.ifmo.ru/trains/toulouse/2017/fft2.pdf
 // It has no recursive calls and uses bit reversal
 fn fft(arr: &mut [Complex], start: usize, stop: usize, step: usize, inverse: bool) {
